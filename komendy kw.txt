@@ -1,0 +1,23 @@
+create table postac(id_postaci int primary key auto_increment, nazwa varchar(40), rodzaj enum('wikng','ptak','kobieta'), data_ur date, wiek int unsigned);
+
+insert into postac values(NULL,'Bjorn','ptak','2001-12-12','23');
+
+insert into postac values(NULL,'Drozd','ptak','2001-11-11','21');
+
+insert into postac values(NULL,'Tesciowa','kobieta','1901-01-12','101');
+
+update postac set  wiek='88' where nazwa='tesciowa';
+
+create table walizka(id_walizki int primary key auto_increment, pojemnosc int unsigned, kolor enum('rozowy','czerwony','teczowy','zolty'), id_postaci int, foreign key (id_postaci) references postac(id_postaci) on delete cascade);
+
+alter table walizka alter kolor set default 'rozowy';
+
+insert into walizka values (NULL,'10','zolty','1');
+
+insert into walizka values (NULL,'33','teczowy','2');
+
+ create table izba(adres_budynku varchar(50), nazwa_izby varchar(50), metraz int unsigned, id_postaci int, foreign key (id_postaci) references postac(id_postaci)on delete set null);
+ 
+ alter table izba add primary key (adres_budynku,nazwa_izby);
+ 
+ Skończyłem na zadaniu 3.1
