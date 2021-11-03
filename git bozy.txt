@@ -1,0 +1,8 @@
+cd d/kw
+git init
+git config --local user.name Kacper184
+git config --local user.email @gmail.com
+git add *
+git commit -m "vvvv"
+git remote add origin 
+git push -u origin master
