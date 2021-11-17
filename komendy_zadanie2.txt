@@ -46,6 +46,22 @@ update postac set statek='duzy' where nazwa like '%a%';
 
 update statek set max_ladownosc=max_ladownosc-(max_ladownosc*0.30) where data_wodowania='2021-02-02';
 
-select * from postac where wiek<1000;
+alter table postac add constraint const1 CHECK (wiek < 1000);
 
----- Koniec na zadaniu 3
+insert into postac values ('9','Loko','ptak','1900-11-01','120',NULL,NULL,'45673215467');
+ 
+create table marynarz (id_postaci int not null, nazwa varchar(40), rodzaj enum('wikng','ptak','kobieta'), data_ur date, wiek int unsigned, funkcja varchar(255), statek varchar(255), pesel char(11) primary key);
+
+insert into marynarz (id_postaci, nazwa, rodzaj, data_ur, wiek, funkcja, statek, pesel) Select * from postac where statek is not null;
+
+update postac set statek='';
+
+delete from postac where nazwa='Rous';
+
+delete from statek;
+
+drop table statek;
+
+create table zwierz(id int primary key AUTO_INCREMENT, nazwa varchar(255), wiek int);
+
+insert into zwierz select id_postaci, nazwa, wiek  from  postac where rodzaj='ptak';
