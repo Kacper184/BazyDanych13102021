@@ -1,0 +1,9 @@
+select avg(waga) from kreatura where rodzaj='wiking';
+
+select avg(waga),count(rodzaj), rodzaj from kreatura group by rodzaj;
+
+select rodzaj, AVG(ROUND(DATEDIFF(CURDATE(),dataUr)/365)) as wiek from kreatura group by rodzaj;
+
+select sum(waga), rodzaj from zasob group by rodzaj;
+konie na zadaniu 2.1
+

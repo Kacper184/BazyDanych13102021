@@ -12,4 +12,23 @@ select * from zasob where waga between '2' and '5';
 
 select * from kreatura where nazwa like '%or%' and udzwig between '30' and '70';
 
--- koniec na zadaniu 2;
+select * from zasob where MONTH(dataPozyskania )=7 or month(dataPozyskania)=8;
+
+select * from zasob where rodzaj is not NULL order by waga asc;
+
+select * from kreatura order by dataUr asc limit 5;
+
+select rodzaj from zasob group by rodzaj;
+
+select nazwa, rodzaj from kreatura where rodzaj like 'wi%';
+
+select concat(nazwa,' ',rodzaj) as kolumna from kreatura where rodzaj like 'wi%';
+
+select nazwa, waga*ilosc as calkowitaWaga, dataPozyskania, rodzaj from zasob where Year(dataPozyskania) between 2000 and 2007;
+
+select nazwa,  waga*0.7 as MasaWlasciwa, dataPozyskania, rodzaj from zasob;
+
+select * from zasob where rodzaj is null;
+
+select rodzaj from zasob where nazwa like 'Ba%' or nazwa like '%os' group by rodzaj order by rodzaj asc;
+
